@@ -1,0 +1,125 @@
+{
+    "Healthy": {
+        "name": "Healthy Hibiscus Plant",
+        "description": "The plant is currently classified as healthy by the AgriGuard AI machine learning model.",
+        "symptoms": [
+            "Leaves have normal green coloration",
+            "No major visible disease spots",
+            "No significant leaf drying or rust-like symptoms",
+            "Normal plant growth"
+        ],
+        "possible_causes": [
+            "No obvious disease detected",
+            "Generally suitable growing conditions"
+        ],
+        "treatment": [
+            "No disease-specific treatment is required",
+            "Continue normal plant care",
+            "Monitor the plant regularly"
+        ],
+        "prevention": [
+            "Maintain good air circulation",
+            "Avoid excessive watering",
+            "Keep the growing area clean",
+            "Regularly inspect leaves for changes"
+        ]
+    },
+
+    "Leaf_Spot": {
+        "name": "Hibiscus Leaf Spot",
+        "description": "Leaf Spot is a condition that can cause brown, dark or discolored spots on hibiscus leaves. It may be associated with fungal or bacterial pathogens depending on the specific cause.",
+        "symptoms": [
+            "Brown or dark spots on leaves",
+            "Circular or irregular lesions",
+            "Yellowing around affected areas",
+            "Severely affected leaves may fall"
+        ],
+        "possible_causes": [
+            "Fungal pathogens",
+            "Bacterial pathogens",
+            "High humidity",
+            "Prolonged leaf wetness",
+            "Poor air circulation",
+            "Overhead watering"
+        ],
+        "treatment": [
+            "Remove severely affected leaves",
+            "Dispose of infected plant material away from healthy plants",
+            "Improve air circulation around the plant",
+            "Avoid unnecessary wetting of leaves",
+            "Use an appropriate plant disease treatment only according to its label and local agricultural guidance"
+        ],
+        "prevention": [
+            "Avoid overhead watering when possible",
+            "Water near the soil rather than directly onto leaves",
+            "Maintain good spacing and airflow",
+            "Remove fallen infected leaves",
+            "Monitor plants regularly"
+        ]
+    },
+
+    "Dead_Leaf": {
+        "name": "Dead or Severely Damaged Leaf",
+        "description": "The AgriGuard AI model classifies the leaf as Dead_Leaf. This classification indicates significant leaf deterioration but does not by itself identify the exact underlying cause.",
+        "symptoms": [
+            "Brown or completely dry leaf tissue",
+            "Leaf curling or shriveling",
+            "Loss of normal green coloration",
+            "Crisp or damaged leaf surface"
+        ],
+        "possible_causes": [
+            "Natural leaf aging",
+            "Water stress",
+            "Heat stress",
+            "Nutrient problems",
+            "Disease damage",
+            "Physical damage",
+            "Environmental stress"
+        ],
+        "treatment": [
+            "Remove completely dead leaves",
+            "Check soil moisture",
+            "Check temperature and humidity",
+            "Inspect nearby leaves for additional symptoms",
+            "Look for signs of insects or disease"
+        ],
+        "prevention": [
+            "Maintain appropriate watering",
+            "Avoid prolonged drought or waterlogging",
+            "Monitor environmental conditions",
+            "Provide suitable light",
+            "Regularly inspect plant health"
+        ]
+    },
+
+    "Rust": {
+        "name": "Hibiscus Rust",
+        "description": "Rust is a fungal disease that can affect hibiscus and related plants and may produce rust-colored or yellow-orange powdery structures on affected leaves.",
+        "symptoms": [
+            "Yellow or pale spots on leaves",
+            "Orange, yellow, brown or rust-colored fungal structures",
+            "Discoloration on the underside of leaves",
+            "Premature leaf drop in severe cases"
+        ],
+        "possible_causes": [
+            "Rust-causing fungal pathogens",
+            "High humidity",
+            "Extended leaf wetness",
+            "Poor air circulation"
+        ],
+        "treatment": [
+            "Remove severely affected leaves",
+            "Dispose of infected plant material properly",
+            "Improve air circulation",
+            "Keep foliage as dry as practical",
+            "Use a suitable fungicide only according to its label and local agricultural guidance"
+        ],
+        "prevention": [
+            "Avoid prolonged leaf wetness",
+            "Improve spacing and ventilation",
+            "Remove infected fallen leaves",
+            "Monitor the underside of leaves",
+            "Avoid unnecessary overhead irrigation"
+        ]
+    }
+}

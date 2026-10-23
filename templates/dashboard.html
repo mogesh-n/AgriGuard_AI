@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AgriGuard AI</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     BACKGROUND
+========================================================= -->
+
+<div class="background-glow glow-one"></div>
+<div class="background-glow glow-two"></div>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            🌱
+        </div>
+
+        <div>
+
+            <h1>
+                AgriGuard <span>AI</span>
+            </h1>
+
+            <p>
+                Intelligent Hibiscus Farming Assistant
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="system-status">
+
+        <span
+            id="statusDot"
+            class="status-dot"
+        ></span>
+
+        <span id="connectionText">
+            Waiting for ESP32
+        </span>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main class="dashboard">
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero">
+
+        <div>
+
+            <div class="eyebrow">
+                SMART FARMING • AI MONITORING
+            </div>
+
+            <h2>
+                Protect your crop.<br>
+                <span>Grow smarter.</span>
+            </h2>
+
+            <p>
+                Real-time sensor monitoring and
+                Hibiscus disease analysis powered
+                by your AI model.
+            </p>
+
+        </div>
+
+
+        <div class="hero-status">
+
+            <div class="pulse-ring">
+
+                <div>
+                    🌿
+                </div>
+
+            </div>
+
+            <span>
+                AI SYSTEM
+            </span>
+
+            <strong>
+                READY
+            </strong>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         LIVE SENSOR CARDS
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    LIVE MONITORING
+                </span>
+
+                <h3>
+                    Farm Environment
+                </h3>
+
+            </div>
+
+            <span class="live-badge">
+                ● LIVE
+            </span>
+
+        </div>
+
+
+        <div class="sensor-grid">
+
+
+            <!-- TEMPERATURE -->
+
+            <div class="sensor-card">
+
+                <div class="sensor-top">
+
+                    <div class="sensor-icon temperature">
+                        🌡️
+                    </div>
+
+                    <span>
+                        TEMPERATURE
+                    </span>
+
+                </div>
+
+                <div class="sensor-value">
+
+                    <strong id="temperature">
+                        --
+                    </strong>
+
+                    <small>
+                        °C
+                    </small>
+
+                </div>
+
+                <div class="sensor-line">
+                    <span></span>
+                </div>
+
+            </div>
+
+
+            <!-- HUMIDITY -->
+
+            <div class="sensor-card">
+
+                <div class="sensor-top">
+
+                    <div class="sensor-icon humidity">
+                        💧
+                    </div>
+
+                    <span>
+                        HUMIDITY
+                    </span>
+
+                </div>
+
+                <div class="sensor-value">
+
+                    <strong id="humidity">
+                        --
+                    </strong>
+
+                    <small>
+                        %
+                    </small>
+
+                </div>
+
+                <div class="sensor-line">
+                    <span></span>
+                </div>
+
+            </div>
+
+
+            <!-- RAIN -->
+
+            <div class="sensor-card">
+
+                <div class="sensor-top">
+
+                    <div class="sensor-icon rain">
+                        🌧️
+                    </div>
+
+                    <span>
+                        RAIN
+                    </span>
+
+                </div>
+
+                <div class="sensor-value">
+
+                    <strong id="rain">
+                        --
+                    </strong>
+
+                </div>
+
+                <div class="sensor-description">
+                    Weather condition
+                </div>
+
+            </div>
+
+
+            <!-- LIGHT -->
+
+            <div class="sensor-card">
+
+                <div class="sensor-top">
+
+                    <div class="sensor-icon light">
+                        ☀️
+                    </div>
+
+                    <span>
+                        LIGHT
+                    </span>
+
+                </div>
+
+                <div class="sensor-value">
+
+                    <strong id="ldr">
+                        --
+                    </strong>
+
+                </div>
+
+                <div class="sensor-description">
+                    LDR reading
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         AI ANALYSIS
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    COMPUTER VISION
+                </span>
+
+                <h3>
+                    Hibiscus AI Diagnosis
+                </h3>
+
+            </div>
+
+            <div class="analysis-time">
+                Last analysis:
+                <strong id="analysisTime">
+                    --
+                </strong>
+            </div>
+
+        </div>
+
+
+        <div class="ai-layout">
+
+
+            <!-- IMAGE -->
+
+            <div class="image-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="mini-label">
+                            ESP32-CAM
+                        </span>
+
+                        <h4>
+                            Latest Crop Image
+                        </h4>
+
+                    </div>
+
+                    <div class="camera-badge">
+                        📷 CAMERA
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="crop-image"
+                    id="cropImage"
+                >
+
+                    <div class="image-placeholder">
+
+                        <div class="placeholder-icon">
+                            📷
+                        </div>
+
+                        <strong>
+                            Waiting for image
+                        </strong>
+
+                        <span>
+                            Run esp32_ai_predict.py
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DIAGNOSIS -->
+
+            <div class="diagnosis-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="mini-label">
+                            AI RESULT
+                        </span>
+
+                        <h4>
+                            Diagnosis
+                        </h4>
+
+                    </div>
+
+                    <div class="ai-chip">
+                        AI
+                    </div>
+
+                </div>
+
+
+                <div class="diagnosis-main">
+
+                    <span class="diagnosis-label">
+                        CURRENT PREDICTION
+                    </span>
+
+                    <h2 id="prediction">
+                        Waiting...
+                    </h2>
+
+                    <div class="confidence-row">
+
+                        <span>
+                            Confidence
+                        </span>
+
+                        <strong id="confidence">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="confidence-bar">
+
+                        <span
+                            id="confidenceBar"
+                        ></span>
+
+                    </div>
+
+
+                    <div class="diagnosis-meta">
+
+
+                        <div>
+
+                            <span>
+                                STATUS
+                            </span>
+
+                            <strong id="aiStatus">
+                                --
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                SEVERITY
+                            </span>
+
+                            <strong id="severity">
+                                --
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CLASS PROBABILITIES
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    MODEL OUTPUT
+                </span>
+
+                <h3>
+                    Disease Probabilities
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="probability-card">
+
+
+            <div class="probability-row">
+
+                <div class="probability-name">
+
+                    <span class="probability-dot dead"></span>
+
+                    Dead Leaf
+
+                </div>
+
+                <div class="probability-track">
+
+                    <span
+                        id="barDeadLeaf"
+                    ></span>
+
+                </div>
+
+                <strong id="probDeadLeaf">
+                    --%
+                </strong>
+
+            </div>
+
+
+            <div class="probability-row">
+
+                <div class="probability-name">
+
+                    <span class="probability-dot healthy"></span>
+
+                    Healthy
+
+                </div>
+
+                <div class="probability-track">
+
+                    <span
+                        id="barHealthy"
+                    ></span>
+
+                </div>
+
+                <strong id="probHealthy">
+                    --%
+                </strong>
+
+            </div>
+
+
+            <div class="probability-row">
+
+                <div class="probability-name">
+
+                    <span class="probability-dot leafspot"></span>
+
+                    Leaf Spot
+
+                </div>
+
+                <div class="probability-track">
+
+                    <span
+                        id="barLeafSpot"
+                    ></span>
+
+                </div>
+
+                <strong id="probLeafSpot">
+                    --%
+                </strong>
+
+            </div>
+
+
+            <div class="probability-row">
+
+                <div class="probability-name">
+
+                    <span class="probability-dot rust"></span>
+
+                    Rust
+
+                </div>
+
+                <div class="probability-track">
+
+                    <span
+                        id="barRust"
+                    ></span>
+
+                </div>
+
+                <strong id="probRust">
+                    --%
+                </strong>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SOIL
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    SOIL MONITORING
+                </span>
+
+                <h3>
+                    Soil Moisture
+                </h3>
+
+            </div>
+
+            <div class="pump-status">
+
+                Pump:
+
+                <strong id="pump">
+                    --
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="soil-grid">
+
+
+            <div class="soil-card">
+
+                <div class="soil-header">
+
+                    <span>
+                        ZONE 01
+                    </span>
+
+                    <strong id="soil1">
+                        --%
+                    </strong>
+
+                </div>
+
+                <div class="soil-bar">
+
+                    <span
+                        id="soilBar1"
+                    ></span>
+
+                </div>
+
+            </div>
+
+
+            <div class="soil-card">
+
+                <div class="soil-header">
+
+                    <span>
+                        ZONE 02
+                    </span>
+
+                    <strong id="soil2">
+                        --%
+                    </strong>
+
+                </div>
+
+                <div class="soil-bar">
+
+                    <span
+                        id="soilBar2"
+                    ></span>
+
+                </div>
+
+            </div>
+
+
+            <div class="soil-card">
+
+                <div class="soil-header">
+
+                    <span>
+                        ZONE 03
+                    </span>
+
+                    <strong id="soil3">
+                        --%
+                    </strong>
+
+                </div>
+
+                <div class="soil-bar">
+
+                    <span
+                        id="soilBar3"
+                    ></span>
+
+                </div>
+
+            </div>
+
+
+            <div class="soil-card">
+
+                <div class="soil-header">
+
+                    <span>
+                        ZONE 04
+                    </span>
+
+                    <strong id="soil4">
+                        --%
+                    </strong>
+
+                </div>
+
+                <div class="soil-bar">
+
+                    <span
+                        id="soilBar4"
+                    ></span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         NPK
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    SOIL NUTRIENTS
+                </span>
+
+                <h3>
+                    NPK Status
+                </h3>
+
+            </div>
+
+            <span
+                class="npk-source"
+                id="npkSource"
+            >
+                DEFAULT DATA
+            </span>
+
+        </div>
+
+
+        <div class="npk-grid">
+
+
+            <div class="npk-card">
+
+                <div class="npk-symbol">
+                    N
+                </div>
+
+                <div>
+
+                    <span>
+                        NITROGEN
+                    </span>
+
+                    <strong id="nitrogen">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="npk-card">
+
+                <div class="npk-symbol">
+                    P
+                </div>
+
+                <div>
+
+                    <span>
+                        PHOSPHORUS
+                    </span>
+
+                    <strong id="phosphorus">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="npk-card">
+
+                <div class="npk-symbol">
+                    K
+                </div>
+
+                <div>
+
+                    <span>
+                        POTASSIUM
+                    </span>
+
+                    <strong id="potassium">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         RECOMMENDATIONS
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    AI GUIDANCE
+                </span>
+
+                <h3>
+                    Farm Recommendations
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="recommendation-grid">
+
+
+            <div class="recommendation-card">
+
+                <div class="recommendation-icon">
+                    💊
+                </div>
+
+                <div>
+
+                    <span>
+                        TREATMENT
+                    </span>
+
+                    <h4 id="treatmentTitle">
+                        Awaiting analysis
+                    </h4>
+
+                    <p id="treatmentText">
+                        Treatment recommendations
+                        will appear after analysis.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="recommendation-card">
+
+                <div class="recommendation-icon">
+                    💧
+                </div>
+
+                <div>
+
+                    <span>
+                        IRRIGATION
+                    </span>
+
+                    <h4 id="irrigationTitle">
+                        Monitoring
+                    </h4>
+
+                    <p id="irrigationText">
+                        Irrigation advice will
+                        appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="recommendation-card">
+
+                <div class="recommendation-icon">
+                    🌾
+                </div>
+
+                <div>
+
+                    <span>
+                        YIELD
+                    </span>
+
+                    <h4>
+                        Crop Improvement
+                    </h4>
+
+                    <p id="yieldText">
+                        Yield recommendations
+                        will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CHATBOT
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="chat-card">
+
+            <div class="chat-header">
+
+                <div class="chat-avatar">
+                    🤖
+                </div>
+
+                <div>
+
+                    <span>
+                        AGRIGUARD AI
+                    </span>
+
+                    <h3>
+                        Ask your farming assistant
+                    </h3>
+
+                </div>
+
+                <div class="chat-online">
+                    ● ONLINE
+                </div>
+
+            </div>
+
+
+            <div
+                class="chat-messages"
+                id="chatBox"
+            >
+
+                <div class="message ai-message">
+
+                    <div class="message-avatar">
+                        🤖
+                    </div>
+
+                    <div class="message-content">
+
+                        <strong>
+                            AgriGuard AI
+                        </strong>
+
+                        <p>
+                            Hello! I can explain your
+                            latest crop analysis, sensor
+                            readings, disease prediction
+                            and farming recommendations.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-questions">
+
+                <button
+                    onclick="quickQuestion('What disease does my plant have?')"
+                >
+                    🦠 Disease?
+                </button>
+
+                <button
+                    onclick="quickQuestion('What is the current confidence?')"
+                >
+                    📊 Confidence
+                </button>
+
+                <button
+                    onclick="quickQuestion('Should I irrigate my crop?')"
+                >
+                    💧 Irrigation
+                </button>
+
+                <button
+                    onclick="quickQuestion('How can I improve yield?')"
+                >
+                    🌾 Improve yield
+                </button>
+
+            </div>
+
+
+            <div class="chat-input">
+
+                <input
+                    id="chatInput"
+                    type="text"
+                    placeholder="Ask AgriGuard AI..."
+                >
+
+                <button
+                    onclick="sendMessage()"
+                >
+                    Send
+                    ➤
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <strong>
+        🌱 AgriGuard AI
+    </strong>
+
+    <span>
+        Smart Farming • AI • IoT
+    </span>
+
+</footer>
+
+
+<script
+    src="{{ url_for('static', filename='script.js') }}"
+></script>
+
+
+</body>
+
+</html>

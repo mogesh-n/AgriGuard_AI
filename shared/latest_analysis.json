@@ -1,0 +1,35 @@
+{
+    "timestamp": "2026-08-28 11:14:23",
+    "prediction": "Dead_Leaf",
+    "confidence": 57.61048889160156,
+    "probabilities": {
+        "Dead_Leaf": 57.61048889160156,
+        "Healthy": 3.3554892539978027,
+        "Leaf_Spot": 0.912754237651825,
+        "Rust": 38.12127685546875
+    },
+    "status": "LOW CONFIDENCE",
+    "image": "latest_image.jpg",
+    "sensors": {
+        "soil1": 0,
+        "soil2": 0,
+        "soil3": 0,
+        "soil4": 100,
+        "soil1_raw": 4095,
+        "soil2_raw": 4095,
+        "soil3_raw": 4095,
+        "soil4_raw": 1051,
+        "temperature": 28.6,
+        "humidity": 54.0,
+        "rain_value": 4095,
+        "raining": false,
+        "ldr": 62,
+        "nitrogen": 3.0,
+        "phosphorus": 4.0,
+        "potassium": 9.0,
+        "npk_source": "SENSOR",
+        "npk_sensor_ok": true,
+        "dht_valid": true,
+        "pump": true
+    }
+}
